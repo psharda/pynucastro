@@ -127,7 +127,9 @@ from pynucastro.networks import \
     StarKillerNetwork, \
     BaseCxxNetwork, \
     StarKillerCxxNetwork, \
-    SympyRates
+    SympyRates, \
+    ChemRateCollection, \
+    SympyChemRateCollection
 
 from pynucastro.rates import \
     Tfactors, \
@@ -136,4 +138,8 @@ from pynucastro.rates import \
     RateFilter, \
     Library, \
     ReacLibLibrary, \
-    list_known_rates
+    list_known_rates, \
+    ChemSpecie, \
+    ChemRate, \
+    ChemComposition, \
+    SympyChemRate

@@ -63,14 +63,22 @@ class SympyRates:
         # composition dependence
         Y_sym = 1
         for r in sorted(set(rate.reactants)):
+            print(r)
             c = rate.reactants.count(r)
+            print(c)
             if self.ctype == "Fortran":
                 sym_final = f'{self.name_y}(j{r})'
             else:
                 sym_final = f'{self.name_y}({r.c()})'
+
+            print(sym_final)
             sym_temp  = f'Y__j{r}__'
+            print(sym_temp)
+
             self.symbol_ludict[sym_temp] = sym_final
             Y_sym = Y_sym * sympy.symbols(sym_temp)**c
+            print(Y_sym)
+            print('')
 
         # density dependence
         dens_sym = sympy.symbols('__dens__')**rate.dens_exp
@@ -177,3 +185,4 @@ class SympyRates:
             s = s.replace(old_num, f"{old_num}{const_spec}")
 
         return s
+
